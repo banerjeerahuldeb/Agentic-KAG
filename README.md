@@ -1,5 +1,5 @@
 
-# KAG Starter Repo (Runnable Scaffold)
+# Agentic KAG
 
 This scaffold contains a minimal runnable starter project for a Knowledge-Augmented Generator (KAG):
 - FastAPI backend (planner + executor)
