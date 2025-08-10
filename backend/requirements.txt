@@ -1,0 +1,9 @@
+
+fastapi
+uvicorn[standard]
+neo4j
+asyncpg
+openai
+faiss-cpu
+python-dotenv
+pydantic

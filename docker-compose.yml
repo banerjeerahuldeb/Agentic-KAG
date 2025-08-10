@@ -1,0 +1,41 @@
+
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    env_file: .env
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./data:/data
+    depends_on:
+      - neo4j
+      - postgres
+    networks:
+      - kag-net
+  neo4j:
+    image: neo4j:5.13
+    environment:
+      NEO4J_AUTH: 'neo4j/password'
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    volumes:
+      - neo4j_data:/data
+    networks:
+      - kag-net
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - kag-net
+volumes:
+  neo4j_data:
+  pgdata:
+networks:
+  kag-net:
